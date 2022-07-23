@@ -1,0 +1,28 @@
+package CarbonUser api;
+
+class User {
+    var email: String;
+
+    var password: String;
+
+    fn SetEmail[addr me: User*](email: String) -> User* {
+        (*me).email = email;
+        return me;
+    }
+
+    fn ToString[addr me: User*]() -> (String,String) {
+        return ((*me).email,(*me).password);
+    }
+}
+
+fn Main() -> i32 {
+    var newUser : User= {.email="",.password=""}; 
+
+    newUser.SetEmail("somerandomemail@gmail.com");
+
+    var (userEmail: String,userPassword: String) = newUser.ToString();
+
+    Print(userEmail);
+
+    return 0;
+}
